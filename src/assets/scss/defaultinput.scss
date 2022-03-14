@@ -1,0 +1,29 @@
+@use  'index';
+
+.default-input {
+    outline: none;
+
+    width: 288px;
+    height: 40px;
+
+    background-color: index.$main-beige-color;
+
+    font-size: 16px;
+    color: index.$dark-green-color;
+
+    padding: 0 15px;
+    border: 1px solid #A8A8B3;
+    border-radius: 8px;
+
+    &:focus {
+        outline: 1px solid index.$main-green-color;
+    }
+
+    &::-webkit-input-placeholder {
+        color: index.$main-grey-color;
+    }
+
+    &::-moz-placeholder {
+        color: index.$main-grey-color;
+    }
+}
