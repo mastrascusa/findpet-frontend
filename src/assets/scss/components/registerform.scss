@@ -1,0 +1,40 @@
+@use  '../index';
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: index.$dark-green-color;
+
+    .user-exists {
+        position: relative;
+
+        .default-input {
+            outline: 1px solid index.$main-red-color;
+        }
+
+        &:before {
+            position: absolute;
+            content: "Um usuário com essa informação já existe";
+
+            width: 100%;
+            height: 100%;
+
+            transform: translate3d(8px, 100%, 0);
+
+            font-size: 11px;
+        }
+    }
+
+    .default-button {
+        &:disabled {
+            background-color: index.$main-red-color;
+            filter: brightness(0.7);
+        }
+    }
+}
