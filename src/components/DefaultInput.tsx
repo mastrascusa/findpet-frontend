@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react'
 
-import '../assets/scss/defaultinput.scss'
+import '../assets/scss/components/defaultinput.scss'
 
 type DefaultInputProps = InputHTMLAttributes<HTMLInputElement>
 

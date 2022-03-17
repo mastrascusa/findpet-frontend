@@ -7,7 +7,7 @@ import { DefaultInput } from "./DefaultInput"
 
 import { signIn, User, UserError } from "../api/signIn"
 
-import '../assets/scss/components/registerform.scss'
+import '../assets/scss/components/userforms.scss'
 
 export interface RegisterFormType {
     username: string
