@@ -20,21 +20,31 @@ form {
 
         &:before {
             position: absolute;
+            bottom: -15px;
             content: "Um usuário com essa informação já existe";
 
             width: 100%;
-            height: 100%;
-
-            transform: translate3d(8px, 100%, 0);
 
             font-size: 11px;
         }
     }
 
-    .default-button {
-        &:disabled {
-            background-color: index.$main-red-color;
-            filter: brightness(0.7);
+    &.error {
+        position: relative;
+
+        .default-input {
+            outline: 1px solid index.$main-red-color;
+        }
+
+        &:before {
+            position: absolute;
+            top: -15px;
+            content: "Username ou senha incorretos";
+
+            width: 100%;
+            height: 10%;
+
+            font-size: 11px;
         }
     }
 }

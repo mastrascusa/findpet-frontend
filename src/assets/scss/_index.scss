@@ -1,0 +1,54 @@
+$main-beige-color: rgb(242, 241, 232);
+$dark-beige-color: rgb(222, 219, 176);
+
+$main-green-color: rgb(122, 159, 138);
+$dark-green-color: rgb(34, 38, 1);
+
+$main-grey-color: rgb(168, 168, 179);
+$dark-grey-color: rgb(115, 115, 128);
+
+$main-red-color: rgba(255, 98, 90, 0.8);
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+
+  min-width: 100vw;
+  min-height: 100vh;
+
+  background-color: $main-beige-color;
+
+  #root {
+    position: relative;
+    
+    min-width: inherit;
+    min-height: inherit;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 999px;
+  background-color: $main-beige-color;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: $dark-beige-color;
+}
+
+::-webkit-scrollbar-corner {
+  background: $main-beige-color;
+}

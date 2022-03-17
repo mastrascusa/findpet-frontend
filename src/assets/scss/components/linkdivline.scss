@@ -1,4 +1,4 @@
-@use  'index';
+@use  '../index';
 
 .link-div-container {
     display: flex;
@@ -6,7 +6,9 @@
     align-items: center;
     gap: 5px;
 
-    margin: 8px 0;
+    margin: 8px auto;
+
+    max-width: 900px;
 
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
