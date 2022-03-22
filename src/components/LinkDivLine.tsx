@@ -1,12 +1,8 @@
-import { ReactNode } from "react"
 import { Link } from "react-router-dom"
 
 import '../assets/scss/components/linkdivline.scss'
 
-interface LinkDivLineProps {
-    children?: ReactNode
-    link: string
-}
+import { LinkDivLineProps } from "../types/components/linkdivline"
 
 export function LinkDivLine({ children, link }: LinkDivLineProps) {
     return (

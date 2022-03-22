@@ -7,34 +7,9 @@ import { DefaultInput } from "./DefaultInput"
 
 import { signIn, User, UserError } from "../api/signIn"
 
+import { defaultRegisterForm, inputInfos, RegisterFormType } from "../types/components/registerform"
+
 import '../assets/scss/components/userforms.scss'
-
-export interface RegisterFormType {
-    username: string
-    first_name: string
-    last_name: string
-    email: string
-    password: string
-    password_confirmation: string
-}
-
-const inputInfos: RegisterFormType = {
-    username: 'Username',
-    first_name: 'Nome',
-    last_name: 'Sobrenome',
-    email: 'Email',
-    password: 'Senha',
-    password_confirmation: 'Confirmar Senha'
-}
-
-const defaultRegisterForm: RegisterFormType = {
-    username: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
-    password_confirmation: ''
-}
 
 export function RegisterForm() {
     const navigate = useNavigate()
