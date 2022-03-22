@@ -1,18 +1,5 @@
-import { RegisterFormType } from "../components/RegisterForm";
-
-export interface User {
-    id: number
-    username: string
-    first_name: string
-    last_name: string
-    email: string
-    is_active: boolean
-}
-
-export interface UserError {
-    username?: string
-    email?: string
-}
+import { User, UserError } from "../types/api/register"
+import { RegisterFormType } from "../types/components/registerform"
 
 export async function signIn(userInfo: RegisterFormType): Promise<[data: User | UserError, type: 'SIGN_IN' | 'ERROR']> {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/users/register/`, {
