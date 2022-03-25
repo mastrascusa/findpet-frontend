@@ -4,5 +4,7 @@ export interface TokensType {
 }
 
 export interface RefreshTokenError {
-    error: "You don't have a valid refresh token" | "Something wrong happened and the tokens were not updated"
+    error: string
 }
+
+export type UpdateTokensResponseType = [data: TokensType | RefreshTokenError, type: 'UPDATED' | 'ERROR']
