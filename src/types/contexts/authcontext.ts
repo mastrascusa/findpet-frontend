@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { User } from "../../api/signIn"
+import { User } from "../api/register"
 
 export interface AuthContextProviderProps {
     children: ReactNode
