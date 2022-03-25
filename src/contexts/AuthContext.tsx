@@ -6,10 +6,13 @@ import { updateTokens } from "../api/updateTokens";
 import { AuthContextProviderProps, AuthContextType, UserContextType } from "../types/contexts/authcontext";
 import { TokensType } from "../types/api/updatetokens";
 
+import { useLoading } from "../hooks/useLoading";
+
 export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
     const [user, setUser] = useState<UserContextType>()
+    const { setIsLoading } = useLoading()
 
     useEffect(() => {
         async function initializeUser() {
@@ -25,9 +28,14 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
                         user
                     } as UserContextType
                     setUser(userContext)
+                    setIsLoading(false)
                 } else {
                     setUser(undefined)
+                    setIsLoading(false)
                 }
+            } else {
+                setUser(undefined)
+                setIsLoading(false)
             }
         }
 
