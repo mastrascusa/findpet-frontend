@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { getUserInfo } from "../api/getUserInfo";
 import { updateTokens } from "../api/updateTokens";
+import { checkWasConnected, setWasConnected } from "../functions/wasConnected";
 
 import { AuthContextProviderProps, AuthContextType, UserContextType } from "../types/contexts/authcontext";
 import { TokensType } from "../types/api/updatetokens";
@@ -28,19 +29,23 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
                         user
                     } as UserContextType
                     setUser(userContext)
+                    setWasConnected(true)
                     setIsLoading(false)
                 } else {
                     setUser(undefined)
+                    checkWasConnected()
+                    setWasConnected(false)
                     setIsLoading(false)
                 }
             } else {
                 setUser(undefined)
+                checkWasConnected()
+                setWasConnected(false)
                 setIsLoading(false)
             }
         }
-
         initializeUser()
-    }, [])
+    }, [setIsLoading])
 
     return (
         <AuthContext.Provider value={{ user, setUser }}>
