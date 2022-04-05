@@ -1,4 +1,7 @@
 @use  '../index';
+@import url('swiper/scss');
+@import url('swiper/scss/autoplay');
+@import url('swiper/scss/pagination');
 
 .animal-slide {
     position: relative;

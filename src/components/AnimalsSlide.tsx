@@ -9,9 +9,6 @@ import animal05Img from '../assets/images/animal05.png'
 import instagramLogo from '../assets/images/instagram-logo.svg'
 
 import '../assets/scss/components/animalsslide.scss'
-import 'swiper/swiper.scss'
-import 'swiper/modules/autoplay/autoplay.scss'
-import 'swiper/modules/pagination/pagination.scss'
 
 export function AnimalsSlide() {
     const slideAnimalImages = [animal01Img, animal02Img, animal03Img, animal04Img, animal05Img]
