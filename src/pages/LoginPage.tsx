@@ -5,7 +5,7 @@ import { DefaultLandingPage } from './DefaultLandingPage'
 
 export function LoginPage() {
     return (
-        <DefaultLandingPage>
+        <DefaultLandingPage mainId="login-page">
             <LoginContainer />
         </DefaultLandingPage>
     )

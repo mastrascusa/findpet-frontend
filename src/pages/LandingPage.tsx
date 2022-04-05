@@ -5,7 +5,7 @@ import { DefaultLandingPage } from './DefaultLandingPage'
 
 export function LandingPage() {
     return (
-        <DefaultLandingPage>
+        <DefaultLandingPage mainId="landing-page">
             <RegisterContainer />
         </DefaultLandingPage>
     )

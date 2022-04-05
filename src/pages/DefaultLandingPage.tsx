@@ -1,19 +1,17 @@
-import { Fragment, ReactNode } from "react"
+import { Fragment } from "react"
 import { AnimalsSlide } from "../components/AnimalsSlide"
 import { MainFooter } from "../components/MainFooter"
 import { MainHeader } from "../components/MainHeader"
 
 import authorImg from '../assets/images/author-photo.jpg'
 
-interface DefaultLandingPageProps {
-    children: ReactNode
-}
+import { DefaultLandingPageProps } from "../types/pages/defaultladingpage"
 
-export function DefaultLandingPage({ children }: DefaultLandingPageProps) {
+export function DefaultLandingPage({ children, mainId }: DefaultLandingPageProps) {
     return (
         <Fragment>
             <MainHeader />
-            <main>
+            <main id={mainId}>
                 <h1 className="app-name">FindPet!</h1>
                 <section className="general-container">
                     {children}
