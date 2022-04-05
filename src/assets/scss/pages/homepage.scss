@@ -28,31 +28,6 @@
 
             margin-top: 45px;
         }
-
-        .selects-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            width: 100%;
-
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-
-            margin-top: 40px;
-
-            > div {
-                display: flex;
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-
-            .select-classification, .select-localization {
-                width: 90%;
-                margin: 0 auto;
-            }
-        }
     }
 
     .search-container {
