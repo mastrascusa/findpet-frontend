@@ -1,12 +1,14 @@
-import { RefreshTokenError, TokensType } from "../types/api/updatetokens"
+import { UpdateTokensResponseType } from "../types/api/updatetokens"
 
 import { getCookie } from "./getCookie"
 
-export async function updateTokens(): Promise<[data: TokensType | RefreshTokenError, type: 'UPDATED' | 'ERROR']> {
+export async function updateTokens(): Promise<UpdateTokensResponseType> {
     const refreshJWTCookie = getCookie('refreshtoken')
 
     if (refreshJWTCookie) {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/users/token/refresh/`, {
+        var updateTokensResponse: UpdateTokensResponseType = [{error: "Something wrong happened and the tokens were not updated"}, 'ERROR'];
+
+        await fetch(`${process.env.REACT_APP_API_URL}/users/token/refresh/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -15,14 +17,13 @@ export async function updateTokens(): Promise<[data: TokensType | RefreshTokenEr
             body: JSON.stringify({
                 'refresh': refreshJWTCookie
             })
+        }).then(response => response.json()).then(tokenData => {
+            updateTokensResponse = [tokenData, 'UPDATED']
+        }).catch((error: Error) => {
+            updateTokensResponse =  [{error: error.message}, 'ERROR'];
         })
-        const tokenData = await response.json()
-
-        if (response.status === 200) {
-            return [tokenData, 'UPDATED']
-        } else {
-            return [{error: "Something wrong happened and the tokens were not updated"}, 'ERROR']
-        }
+       
+        return updateTokensResponse
     } else {
         return [{error: "You don't have a valid refresh token"}, 'ERROR']
     }

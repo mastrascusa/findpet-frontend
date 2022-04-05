@@ -16,16 +16,16 @@ export async function logIn(userInfo: LoginFormType): Promise<[data: UserContext
     const tokenData = await response.json()
 
     if (response.status === 200) {
-        const userData = await getUserInfo(tokenData.access)
+        const user = await getUserInfo(tokenData.access)
 
-        if (userData) {
-            const user = {
+        if (user) {
+            const userResponse = {
                 ...tokenData,
-                userData
+                user
             } as UserContextType
-            return [user, 'LOGIN']
+            return [userResponse, 'LOGIN']
         } else {
-            return [userData, 'ERROR']
+            return [user, 'ERROR']
         }
     } else {
         const error = tokenData as JWTTokensError
