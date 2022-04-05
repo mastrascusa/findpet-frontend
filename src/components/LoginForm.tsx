@@ -3,26 +3,22 @@ import { FormEvent, Fragment, useEffect, useState } from "react"
 import { DefaultButton } from "./DefaultButton"
 import { DefaultInput } from "./DefaultInput"
 
-import { UserContextType } from "../contexts/AuthContext"
-//import { useAuth } from "../hooks/useAuth"
 import { logIn } from "../api/logIn"
+import { setWasConnected } from "../functions/wasConnected"
+
+import { defaultLoginForm, LoginFormType } from "../types/components/loginform"
+import { UserContextType } from "../types/contexts/authcontext"
 
 import '../assets/scss/components/userforms.scss'
 
-export interface LoginFormType {
-    username: string
-    password: string
-}
-
-const defaultLoginForm: LoginFormType = {
-    username: '',
-    password: ''
-}
+import { useAuth } from "../hooks/useAuth"
+import { useLoading } from "../hooks/useLoading"
 
 export function LoginForm() {
     const [loginForm, setLoginForm] = useState(defaultLoginForm as LoginFormType)
     const [isSubmitButtonDisable, setIsSubmitButtonDisable] = useState(true)
-    //const { setUser } = useAuth()
+    const { setUser } = useAuth()
+    const { setIsLoading } = useLoading()
 
     async function handleUserLogin(event: FormEvent) {
         event.preventDefault()
@@ -33,7 +29,9 @@ export function LoginForm() {
             const formElement = document.getElementById('login-form')
             formElement?.classList.remove('error')
 
-            console.log(user)
+            setUser(user)
+            setWasConnected(true)
+            setIsLoading(false)
         } else if (type === 'ERROR') {
             const formElement = document.getElementById('login-form')
             formElement?.classList.add('error')

@@ -5,9 +5,10 @@ import toast from "react-hot-toast"
 import { DefaultButton } from "./DefaultButton"
 import { DefaultInput } from "./DefaultInput"
 
-import { signIn, User, UserError } from "../api/signIn"
+import { signIn } from "../api/signIn"
 
 import { defaultRegisterForm, inputInfos, RegisterFormType } from "../types/components/registerform"
+import { UserError } from "../types/api/register"
 
 import '../assets/scss/components/userforms.scss'
 
@@ -22,17 +23,13 @@ export function RegisterForm() {
         const [data, type] = await signIn(registerForm)
 
         if (type === 'SIGN_IN') {
-            const user = data as User
-
             toast('Verifique seu email antes de continuar', {
                 icon: '📩',
                 style: {
-                    backgroundColor: 'rgb(222, 219, 176)',
+                    backgroundColor: 'rgb(222, 219, 176)'
                 }
             })
             navigate('/login')
-
-            console.log(user)
         } else if (type === 'ERROR') {
             const error = data as UserError
 
